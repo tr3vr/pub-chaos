@@ -1,0 +1,229 @@
+docker build -t trifid .
+
+Sending build context to Docker daemon 1.728 MB
+Sending build context to Docker daemon 
+Step 0 : FROM node:0.10-onbuild
+0.10-onbuild: Pulling from node
+6d1ae97ee388: Pull complete 
+8b9a99209d5c: Pull complete 
+2e05a52ffd47: Pull complete 
+80887d145531: Pull complete 
+efccf6dd12d4: Pull complete 
+2aab081223af: Pull complete 
+f562f02caf83: Pull complete 
+7ef5e7f34150: Pull complete 
+a23e825dd39f: Pull complete 
+5294c9a40986: Pull complete 
+51b74d2150e6: Pull complete 
+5681527ca2c7: Pull complete 
+e0e3ad6706e8: Pull complete 
+6f06e6adf853: Pull complete 
+2dd21798316b: Pull complete 
+0d52f695c91b: Pull complete 
+node:0.10-onbuild: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
+Digest: sha256:1993615bb97fdd612af8c6178d886694c453917765f6cd602c1aa2d0677e8266
+Status: Downloaded newer image for node:0.10-onbuild
+# Executing 3 build triggers
+Trigger 0, COPY package.json /usr/src/app/
+Step 0 : COPY package.json /usr/src/app/
+Trigger 1, RUN npm install
+Step 0 : RUN npm install
+ ---> Running in 7bc317955df4
+npm WARN package.json trifid-ld@0.0.2 No README data
+
+> dtrace-provider@0.3.2 install /usr/src/app/node_modules/bunyan/node_modules/dtrace-provider
+> node scripts/install.js
+
+npm WARN engine escodegen@1.7.1: wanted: {"node":">=0.12.0"} (current: {"node":"0.10.41","npm":"2.14.1"})
+
+> contextify@0.1.15 install /usr/src/app/node_modules/rdf-ext/node_modules/jsonld/node_modules/jsdom/node_modules/contextify
+> node-gyp rebuild
+
+make: Entering directory '/usr/src/app/node_modules/rdf-ext/node_modules/jsonld/node_modules/jsdom/node_modules/contextify/build'
+  CXX(target) Release/obj.target/contextify/src/contextify.o
+  SOLINK_MODULE(target) Release/obj.target/contextify.node
+  COPY Release/contextify.node
+make: Leaving directory '/usr/src/app/node_modules/rdf-ext/node_modules/jsonld/node_modules/jsdom/node_modules/contextify/build'
+npm WARN peerDependencies The peer dependency kerberos@~0.0 included from mongodb-core will no
+npm WARN peerDependencies longer be automatically installed to fulfill the peerDependency 
+npm WARN peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+
+> microtime@2.0.0 install /usr/src/app/node_modules/yasgui/node_modules/sifter/node_modules/microtime
+> node-gyp rebuild
+
+make: Entering directory '/usr/src/app/node_modules/yasgui/node_modules/sifter/node_modules/microtime/build'
+  CXX(target) Release/obj.target/microtime/src/microtime.o
+  SOLINK_MODULE(target) Release/obj.target/microtime.node
+  COPY Release/microtime.node
+make: Leaving directory '/usr/src/app/node_modules/yasgui/node_modules/sifter/node_modules/microtime/build'
+
+> bson@0.2.22 install /usr/src/app/node_modules/yasgui/node_modules/tingodb/node_modules/bson
+> (node-gyp rebuild 2> builderror.log) || (exit 0)
+
+make: Entering directory '/usr/src/app/node_modules/yasgui/node_modules/tingodb/node_modules/bson/build'
+  CXX(target) Release/obj.target/bson/ext/bson.o
+  SOLINK_MODULE(target) Release/obj.target/bson.node
+  COPY Release/bson.node
+make: Leaving directory '/usr/src/app/node_modules/yasgui/node_modules/tingodb/node_modules/bson/build'
+
+> kerberos@0.0.17 install /usr/src/app/node_modules/yasgui/node_modules/mongodb/node_modules/kerberos
+> (node-gyp rebuild) || (exit 0)
+
+make: Entering directory '/usr/src/app/node_modules/yasgui/node_modules/mongodb/node_modules/kerberos/build'
+  CXX(target) Release/obj.target/kerberos/lib/kerberos.o
+  CXX(target) Release/obj.target/kerberos/lib/worker.o
+  CC(target) Release/obj.target/kerberos/lib/kerberosgss.o
+../lib/kerberosgss.c:36:0: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+ #pragma clang diagnostic push
+ ^
+../lib/kerberosgss.c:37:0: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+ #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+ ^
+../lib/kerberosgss.c: In function 'authenticate_gss_client_wrap':
+../lib/kerberosgss.c:362:19: warning: variable 'server_conf_flags' set but not used [-Wunused-but-set-variable]
+   char buf[4096], server_conf_flags;
+                   ^
+../lib/kerberosgss.c: At top level:
+../lib/kerberosgss.c:930:0: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+ #pragma clang diagnostic pop
+ ^
+  CC(target) Release/obj.target/kerberos/lib/base64.o
+  CXX(target) Release/obj.target/kerberos/lib/kerberos_context.o
+  SOLINK_MODULE(target) Release/obj.target/kerberos.node
+/usr/bin/ld: cannot find -lkrb5
+/usr/bin/ld: cannot find -lgssapi_krb5
+collect2: error: ld returned 1 exit status
+kerberos.target.mk:130: recipe for target 'Release/obj.target/kerberos.node' failed
+make: *** [Release/obj.target/kerberos.node] Error 1
+make: Leaving directory '/usr/src/app/node_modules/yasgui/node_modules/mongodb/node_modules/kerberos/build'
+gyp ERR! build error 
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:269:23)
+gyp ERR! stack     at ChildProcess.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:820:12)
+gyp ERR! System Linux 3.19.0-33-generic
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /usr/src/app/node_modules/yasgui/node_modules/mongodb/node_modules/kerberos
+gyp ERR! node -v v0.10.41
+gyp ERR! node-gyp -v v2.0.2
+gyp ERR! not ok 
+express-utils@0.1.2 node_modules/express-utils
+
+tbbt-ld@0.0.2 node_modules/tbbt-ld
+
+es6-promise@1.0.0 node_modules/es6-promise
+
+stream-buffers@1.1.0 node_modules/stream-buffers
+
+ldp@0.1.4 node_modules/ldp
+└── mimeparse@0.1.4
+
+express-negotiate@0.0.5 node_modules/express-negotiate
+└── mime@1.3.4
+
+morgan@1.5.3 node_modules/morgan
+├── basic-auth@1.0.3
+├── depd@1.0.1
+├── on-finished@2.2.1 (ee-first@1.1.0)
+└── debug@2.2.0 (ms@0.7.1)
+
+body-parser@1.10.2 node_modules/body-parser
+├── bytes@1.0.0
+├── media-typer@0.3.0
+├── raw-body@1.3.2
+├── depd@1.0.1
+├── on-finished@2.2.1 (ee-first@1.1.0)
+├── qs@2.3.3
+├── type-is@1.5.7 (mime-types@2.0.14)
+└── iconv-lite@0.4.6
+
+express@4.13.3 node_modules/express
+├── escape-html@1.0.2
+├── merge-descriptors@1.0.0
+├── array-flatten@1.1.1
+├── cookie@0.1.3
+├── utils-merge@1.0.0
+├── cookie-signature@1.0.6
+├── methods@1.1.1
+├── fresh@0.3.0
+├── range-parser@1.0.3
+├── vary@1.0.1
+├── path-to-regexp@0.1.7
+├── etag@1.7.0
+├── content-type@1.0.1
+├── parseurl@1.3.0
+├── content-disposition@0.5.0
+├── serve-static@1.10.0
+├── depd@1.0.1
+├── on-finished@2.3.0 (ee-first@1.1.1)
+├── qs@4.0.0
+├── finalhandler@0.4.0 (unpipe@1.0.0)
+├── debug@2.2.0 (ms@0.7.1)
+├── proxy-addr@1.0.10 (forwarded@0.1.0, ipaddr.js@1.0.5)
+├── send@0.13.0 (destroy@1.0.3, ms@0.7.1, statuses@1.2.1, mime@1.3.4, http-errors@1.3.1)
+├── accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.8)
+└── type-is@1.6.10 (media-typer@0.3.0, mime-types@2.1.8)
+
+request@2.47.0 node_modules/request
+├── caseless@0.6.0
+├── forever-agent@0.5.2
+├── aws-sign2@0.5.0
+├── oauth-sign@0.4.0
+├── stringstream@0.0.5
+├── tunnel-agent@0.4.2
+├── json-stringify-safe@5.0.1
+├── qs@2.3.3
+├── node-uuid@1.4.7
+├── mime-types@1.0.2
+├── combined-stream@0.0.7 (delayed-stream@0.0.5)
+├── form-data@0.1.4 (mime@1.2.11, async@0.9.2)
+├── tough-cookie@2.2.1
+├── http-signature@0.10.1 (assert-plus@0.1.5, asn1@0.1.11, ctype@0.5.3)
+├── bl@0.9.4 (readable-stream@1.0.33)
+└── hawk@1.1.1 (cryptiles@0.2.2, sntp@0.2.4, boom@0.4.2, hoek@0.9.1)
+
+bunyan@1.2.4 node_modules/bunyan
+├── dtrace-provider@0.3.2 (nan@1.3.0)
+└── mv@2.1.1 (ncp@2.0.0, mkdirp@0.5.1, rimraf@2.4.4)
+
+rdf-ext@0.2.6 node_modules/rdf-ext
+├── rdf-interfaces@0.1.1
+├── xmldom@0.1.19
+├── n3@0.4.5
+├── es6-promise@2.3.0
+└── jsonld@0.3.26 (pkginfo@0.3.1, async@1.5.0, es6-promise@2.0.1, commander@2.9.0, request@2.67.0, jsdom@3.1.2)
+
+yasgui@1.3.0 node_modules/yasgui
+├── follow-redirects@0.0.3
+├── microplugin@0.0.3
+├── deep-extend@0.3.3
+├── connect-livereload@0.5.4
+├── valid-url@1.0.9
+├── shortid@2.2.4
+├── minimist@1.2.0
+├── underscore@1.8.3
+├── yasgui-utils@1.6.0 (store@1.3.17)
+├── serve-static@1.10.0 (escape-html@1.0.2, parseurl@1.3.0, send@0.13.0)
+├── bootstrap-contextmenu@0.3.3
+├── gulp-express@0.1.13 (deepmerge@0.2.10, debug@2.2.0, event-stream@3.2.2, tiny-lr@0.0.9)
+├── jquery@1.11.3
+├── selectize@0.12.1
+├── bootstrap-sass@3.3.6
+├── codemirror@4.13.0
+├── jquery-ui@1.10.5
+├── sifter@0.4.5 (humanize@0.0.9, node-csv@0.5.0, async@0.2.10, optimist@0.6.1, cardinal@0.4.4, microtime@2.0.0)
+├── yasgui-yasqe@2.7.2
+├── tingodb@0.3.5 (safe@0.3.7, async@0.9.2, lodash@2.4.2, bson@0.2.22)
+├── mongodb@2.0.52 (readable-stream@1.0.31, es6-promise@2.1.1, kerberos@0.0.17, mongodb-core@1.2.28)
+└── yasgui-yasr@2.6.3 (datatables@1.10.9, d3@3.5.12, pivottable@1.6.3)
+Trigger 2, COPY . /usr/src/app
+Step 0 : COPY . /usr/src/app
+ ---> 63862602ae0e
+Removing intermediate container 68e9dbc4cc0c
+Removing intermediate container 7bc317955df4
+Removing intermediate container 0ec41a6afff7
+Step 1 : EXPOSE 8080
+ ---> Running in 0bcd92f094f6
+ ---> 2d181edcb008
+Removing intermediate container 0bcd92f094f6
+Successfully built 2d181edcb008
